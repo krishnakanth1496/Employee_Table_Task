@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+message InsertEmployeeRequest {
+  string employeeName = 1;
+  double salary = 2;
+  string department = 3;
+}
+
+message InsertEmployeeResponse {
+  string message = 1;
+}
+
+message DeleteEmployeeRequest {
+  int32 id = 1;
+}
+
+message DeleteEmployeeResponse {
+  string message = 1;
+}
+
+message UpdateEmployeeRequest {
+  int32 id = 1;
+  string employeeName = 2;
+  double salary = 3;
+  string department = 4;
+}
+
+message UpdateEmployeeResponse {
+  string message = 1;
+}
+
+message SelectEmployeeRequest {
+  int32 id = 1;
+}
+
+message SelectEmployeeResponse {
+  int32 id = 1;
+  string employeeName = 2;
+  double salary = 3;
+  string department = 4;
+}
+
+
+service Employee {
+  rpc InsertEmployee(InsertEmployeeRequest) returns (InsertEmployeeResponse) {}
+}
+
+service DeleteEmployee {
+  rpc DeleteEmployee(DeleteEmployeeRequest) returns (DeleteEmployeeResponse) {}
+}
+
+service UpdateEmployee {
+  rpc UpdateEmployee(UpdateEmployeeRequest) returns (UpdateEmployeeResponse) {}
+}
+
+service SelectEmployee {
+  rpc SelectEmployee(SelectEmployeeRequest) returns (SelectEmployeeResponse) {}
+}
+
+
